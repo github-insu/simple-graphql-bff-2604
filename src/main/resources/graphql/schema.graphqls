@@ -1,0 +1,33 @@
+type Query {
+    readOneUser(userId: ID!): UserReadOneResponse!
+    readUserList: [UserReadOneResponse!]
+}
+
+type Mutation {
+    signUpUser(request: UserSignUpRequest!): UserSignUpResponse!
+    editUser(request: UserEditRequest!): UserEditResponse!
+    deleteUser(userId: ID!): ID!
+}
+type UserReadOneResponse {
+    id: ID!
+    name: String!
+}
+
+type UserSignUpResponse {
+    id: ID!
+    name: String!
+}
+
+type UserEditResponse {
+    id: ID!
+    name: String!
+}
+
+input UserSignUpRequest {
+    name: String!
+}
+
+input UserEditRequest {
+    id: ID!
+    name: String!
+}
