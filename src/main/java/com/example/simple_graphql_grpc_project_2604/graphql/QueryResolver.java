@@ -1,10 +1,6 @@
 package com.example.simple_graphql_grpc_project_2604.graphql;
 
-import com.example.simple_graphql_grpc_project_2604.graphql.dto.UserReadOneResponse;
-import com.example.simple_graphql_grpc_project_2604.graphql.mapper.DtoResultMapper;
-import com.example.simple_graphql_grpc_project_2604.usecase.ReadOneUserUseCase;
-import com.example.simple_graphql_grpc_project_2604.usecase.ReadUserListUseCase;
-import com.example.simple_graphql_grpc_project_2604.usecase.model.UserInfoResult;
+import com.example.simple_graphql_grpc_project_2604.graphql.dto.UserReadOnePayload;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.graphql.data.method.annotation.Argument;
@@ -18,28 +14,18 @@ import java.util.List;
 @RequiredArgsConstructor
 public class QueryResolver {
 
-    private final ReadOneUserUseCase readOneUserUseCase;
-    private final ReadUserListUseCase readUserListUseCase;
-
-    private final DtoResultMapper dtoResultMapper;
 
     @QueryMapping
-    public UserReadOneResponse readOneUser(@Argument Long userId) {
+    public UserReadOnePayload readOneUser(@Argument Long userId) {
         log.info("[QueryResolver/readOneUser()] input user id: {}", userId);
-        UserInfoResult getUser = readOneUserUseCase.readOneUser(userId);
-        log.info("[QueryResolver/readOneUser()] get user name: {}", getUser.name());
 
-        return dtoResultMapper.toReadOneResponse(getUser);
+        return null;
     }
 
     @QueryMapping
-    public List<UserReadOneResponse> readUserList() {
+    public List<UserReadOnePayload> readUserList() {
         log.info("[QueryResolver/readUserList()]");
-        List<UserInfoResult> resultList = readUserListUseCase.readUserList();
-        log.info("[QueryResolver/readUserList()] list size: {}", resultList.size());
 
-        return resultList.stream()
-                .map(dtoResultMapper::toReadOneResponse)
-                .toList();
+        return null;
     }
 }
