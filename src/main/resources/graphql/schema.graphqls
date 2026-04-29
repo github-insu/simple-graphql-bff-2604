@@ -1,33 +1,33 @@
 type Query {
-    readOneUser(userId: ID!): UserReadOneResponse!
-    readUserList: [UserReadOneResponse!]
+    readOneUser(userId: ID!): UserReadOnePayload!
+    readUserList: [UserReadOnePayload!]
 }
 
 type Mutation {
-    signUpUser(request: UserSignUpRequest!): UserSignUpResponse!
-    editUser(request: UserEditRequest!): UserEditResponse!
+    signUpUser(input: UserSignUpInput!): UserSignUpPayload!
+    editUser(input: UserEditInput!): UserEditPayload!
     deleteUser(userId: ID!): ID!
 }
-type UserReadOneResponse {
+type UserReadOnePayload {
     id: ID!
     name: String!
 }
 
-type UserSignUpResponse {
+type UserSignUpPayload {
     id: ID!
     name: String!
 }
 
-type UserEditResponse {
+type UserEditPayload {
     id: ID!
     name: String!
 }
 
-input UserSignUpRequest {
+input UserSignUpInput {
     name: String!
 }
 
-input UserEditRequest {
+input UserEditInput {
     id: ID!
     name: String!
 }

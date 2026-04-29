@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package user;
+
+import "google/protobuf/empty.proto";
+
+option java_multiple_files = true;
+option java_package = "com.example.simplegraphqlgrpcproject2604.grpc";
+
+service UserService {
+  rpc SignUp (UserSignUpRequest) returns (UserSignUpResponse);
+  rpc ReadUserOne (UserReadOneRequest) returns (UserReadOneResponse);
+  rpc ReadUserList (google.protobuf.Empty) returns (UserReadOneResponseList);
+  rpc EditUser(UserEditRequest) returns (UserEditResponse);
+  rpc DeleteUser(UserDeleteRequest) returns (UserDeleteResponse);
+}
+
+message UserSignUpRequest {
+    string name = 1;
+}
+message UserSignUpResponse {
+    int64 id = 1;
+    string name = 2;
+}
+
+message UserReadOneRequest {
+    int64 id = 1;
+}
+message UserReadOneResponse {
+    int64 id = 1;
+    string name = 2;
+}
+
+message UserReadOneResponseList {
+    repeated UserReadOneResponse userReadOneResponseList = 1;
+}
+
+message UserEditRequest {
+    int64 id = 1;
+    string name = 2;
+}
+message UserEditResponse {
+    int64 id = 1;
+    string name = 2;
+}
+
+message UserDeleteRequest {
+    int64 id = 1;
+}
+message UserDeleteResponse {
+    int64 id = 1;
+}
