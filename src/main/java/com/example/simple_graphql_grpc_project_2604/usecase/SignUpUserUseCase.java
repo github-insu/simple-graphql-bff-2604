@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class UserSignUpUseCase {
+public class SignUpUserUseCase {
 
     private final UserGrpcClient userGrpcClient;
 
