@@ -1,33 +1,52 @@
 type Query {
-    readOneUser(userId: ID!): UserReadOnePayload!
-    readUserList: [UserReadOnePayload!]
+    user(id: ID!): User
+    users: [User!]!
+
+    post(id: ID!): Post
+    posts: [Post!]!
 }
 
 type Mutation {
-    signUpUser(input: UserSignUpInput!): UserSignUpPayload!
-    editUser(input: UserEditInput!): UserEditPayload!
-    deleteUser(userId: ID!): ID!
+    createUser(input: CreateUserInput!): User!
+    updateUser(input: UpdateUserInput!): User!
+    deleteUser(id: ID!): ID!
+
+    createPost(input: CreatePostInput!): Post!
+    updatePost(input: UpdatePostInput!): Post!
+    deletePost(userId: ID!): ID!
 }
-type UserReadOnePayload {
+
+type User {
+    id: ID!
+    name: String!
+
+    posts: [Post!]!
+}
+
+type Post {
+    id: ID!
+    title: String!
+    content: String!
+
+    author: User!
+}
+
+input CreateUserInput {
+    name: String!
+}
+
+input UpdateUserInput {
     id: ID!
     name: String!
 }
 
-type UserSignUpPayload {
-    id: ID!
-    name: String!
+input CreatePostInput {
+    title: String!
+    content: String!
 }
 
-type UserEditPayload {
+input UpdatePostInput {
     id: ID!
-    name: String!
-}
-
-input UserSignUpInput {
-    name: String!
-}
-
-input UserEditInput {
-    id: ID!
-    name: String!
+    title: String
+    content: String
 }

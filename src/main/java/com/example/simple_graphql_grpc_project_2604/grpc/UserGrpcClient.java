@@ -24,28 +24,28 @@ public class UserGrpcClient {
 
     private final UserServiceGrpc.UserServiceBlockingStub stub;
 
-    public UserSignUpResponse signUp(UserSignUpRequest request) {
-        log.info("[UserGrpcClient/signUp] 호출 성공");
-        return stub.signUp(request);
-    }
+//    public UserSignUpResponse signUp(UserSignUpRequest request) {
+//        log.info("[UserGrpcClient/signUp] 호출");
+//        return stub.signUp(request);
+//    }
 
     public UserReadOneResponse readUserOne(UserReadOneRequest request) {
-        log.info("[UserGrpcClient/readUserOne] 호출 성공");
+        log.info("[UserGrpcClient/readUserOne] 호출");
         return stub.readUserOne(request);
     }
 
     public UserReadOneResponseList readUserList() {
-        log.info("[UserGrpcClient/readUserList] 호출 성공");
+        log.info("[UserGrpcClient/readUserList] 호출");
         return stub.readUserList(EMPTY);
     }
 
-    public UserEditResponse editUser(UserEditRequest request) {
-        log.info("[UserGrpcClient/editUser] 호출 성공");
-        return stub.editUser(request);
-    }
-
-    public UserDeleteResponse deleteUser(UserDeleteRequest request) {
-        log.info("[UserGrpcClient/deleteUser] 호출 성공");
-        return stub.deleteUser(request);
-    }
+//    public UserEditResponse editUser(UserEditRequest request) {
+//        log.info("[UserGrpcClient/editUser] 호출");
+//        return stub.editUser(request);
+//    }
+//
+//    public UserDeleteResponse deleteUser(UserDeleteRequest request) {
+//        log.info("[UserGrpcClient/deleteUser] 호출");
+//        return stub.deleteUser(request);
+//    }
 }
