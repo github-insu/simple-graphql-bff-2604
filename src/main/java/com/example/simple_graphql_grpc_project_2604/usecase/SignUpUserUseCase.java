@@ -1,7 +1,8 @@
 package com.example.simple_graphql_grpc_project_2604.usecase;
 
-import com.example.simple_graphql_grpc_project_2604.graphql.dto.UserSignUpPayload;
+import com.example.simple_graphql_grpc_project_2604.graphql.model.User;
 import com.example.simple_graphql_grpc_project_2604.grpc.UserGrpcClient;
+import com.example.simple_graphql_grpc_project_2604.usecase.mapper.ResponseUserMapper;
 import com.example.simplegraphqlgrpcproject2604.grpc.UserSignUpRequest;
 import com.example.simplegraphqlgrpcproject2604.grpc.UserSignUpResponse;
 import lombok.RequiredArgsConstructor;
@@ -15,12 +16,14 @@ public class SignUpUserUseCase {
 
     private final UserGrpcClient userGrpcClient;
 
-    public UserSignUpPayload signUp(UserSignUpRequest request) {
+    private final ResponseUserMapper responseUserMapper;
+
+    public User signUp(UserSignUpRequest request) {
         log.info("[UserSignUpUseCase/signUp] request name: {}", request.getName());
         UserSignUpResponse response = userGrpcClient.signUp(request);
         log.info("[UserSignUpUseCase/signUp] saved id: {}", response.getId());
         log.info("[UserSignUpUseCase/signUp] saved name: {}", response.getName());
 
-        return new UserSignUpPayload(response.getId(), response.getName());
+        return responseUserMapper.toUser(response);
     }
 }

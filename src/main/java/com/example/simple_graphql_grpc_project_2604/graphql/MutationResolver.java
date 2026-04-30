@@ -1,10 +1,9 @@
 package com.example.simple_graphql_grpc_project_2604.graphql;
 
-import com.example.simple_graphql_grpc_project_2604.graphql.dto.UserEditInput;
-import com.example.simple_graphql_grpc_project_2604.graphql.dto.UserEditPayload;
-import com.example.simple_graphql_grpc_project_2604.graphql.dto.UserSignUpInput;
-import com.example.simple_graphql_grpc_project_2604.graphql.dto.UserSignUpPayload;
-import com.example.simple_graphql_grpc_project_2604.graphql.mapper.GraphqlToGrpcMapper;
+import com.example.simple_graphql_grpc_project_2604.graphql.dto.EditUserInput;
+import com.example.simple_graphql_grpc_project_2604.graphql.dto.SignUpUserInput;
+import com.example.simple_graphql_grpc_project_2604.graphql.mapper.InputRequestMapper;
+import com.example.simple_graphql_grpc_project_2604.graphql.model.User;
 import com.example.simple_graphql_grpc_project_2604.usecase.DeleteUserUseCase;
 import com.example.simple_graphql_grpc_project_2604.usecase.EditUserUseCase;
 import com.example.simple_graphql_grpc_project_2604.usecase.SignUpUserUseCase;
@@ -26,31 +25,31 @@ public class MutationResolver {
     private final EditUserUseCase editUserUseCase;
     private final DeleteUserUseCase deleteUserUseCase;
 
-    private final GraphqlToGrpcMapper graphqlToGrpcMapper;
+    private final InputRequestMapper inputRequestMapper;
 
     @MutationMapping
-    public UserSignUpPayload signUpUser(@Argument UserSignUpInput input) {
+    public User signUpUser(@Argument SignUpUserInput input) {
         log.info("[MutationResolver/signUpUser()] input user name: {}", input.name());
 
-        UserSignUpRequest request = graphqlToGrpcMapper.toUserSignUpRequest(input);
+        UserSignUpRequest request = inputRequestMapper.toUserSignUpRequest(input);
         log.info("[MutationResolver/signUpUser()] request user name: {}", request.getName());
 
         return signUpUserUseCase.signUp(request);
     }
 
     @MutationMapping
-    public UserEditPayload editUser(@Argument UserEditInput input) {
+    public User editUser(@Argument EditUserInput input) {
         log.info("[MutationResolver/editUser()] input user id: {}", input.id());
         log.info("[MutationResolver/editUser()] input user name: {}", input.name());
-        UserEditRequest request = graphqlToGrpcMapper.toUserEditRequest(input);
+        UserEditRequest request = inputRequestMapper.toUserEditRequest(input);
 
         return editUserUseCase.editUser(request);
     }
 
     @MutationMapping
-    public Long deleteUser(@Argument Long userId) {
-        log.info("[MutationResolver/deleteUser()] input user id: {}", userId);
-        UserDeleteRequest request = graphqlToGrpcMapper.toUserDeleteRequest(userId);
+    public Long deleteUser(@Argument Long id) {
+        log.info("[MutationResolver/deleteUser()] input user id: {}", id);
+        UserDeleteRequest request = inputRequestMapper.toUserDeleteRequest(id);
 
         return deleteUserUseCase.deleteUser(request);
     }

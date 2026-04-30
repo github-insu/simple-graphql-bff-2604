@@ -7,13 +7,13 @@ type Query {
 }
 
 type Mutation {
-    createUser(input: CreateUserInput!): User!
-    updateUser(input: UpdateUserInput!): User!
+    signUpUser(input: SignUpUserInput!): User!
+    editUser(input: EditUserInput!): User!
     deleteUser(id: ID!): ID!
 
-    createPost(input: CreatePostInput!): Post!
-    updatePost(input: UpdatePostInput!): Post!
-    deletePost(userId: ID!): ID!
+    publishPost(input: PublishPostInput!): Post!
+    editPost(input: EditPostInput!): Post!
+    deletePost(id: ID!): ID!
 }
 
 type User {
@@ -31,21 +31,21 @@ type Post {
     author: User!
 }
 
-input CreateUserInput {
+input SignUpUserInput {
     name: String!
 }
 
-input UpdateUserInput {
+input EditUserInput {
     id: ID!
     name: String!
 }
 
-input CreatePostInput {
+input PublishPostInput {
     title: String!
     content: String!
 }
 
-input UpdatePostInput {
+input EditPostInput {
     id: ID!
     title: String
     content: String
