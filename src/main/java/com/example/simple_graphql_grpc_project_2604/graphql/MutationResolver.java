@@ -10,7 +10,6 @@ import com.example.simple_graphql_grpc_project_2604.usecase.EditUserUseCase;
 import com.example.simple_graphql_grpc_project_2604.usecase.SignUpUserUseCase;
 import com.example.simplegraphqlgrpcproject2604.grpc.UserDeleteRequest;
 import com.example.simplegraphqlgrpcproject2604.grpc.UserEditRequest;
-import com.example.simplegraphqlgrpcproject2604.grpc.UserEditResponse;
 import com.example.simplegraphqlgrpcproject2604.grpc.UserSignUpRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
