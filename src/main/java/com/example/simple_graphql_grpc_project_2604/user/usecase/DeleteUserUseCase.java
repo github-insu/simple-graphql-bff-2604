@@ -1,6 +1,6 @@
-package com.example.simple_graphql_grpc_project_2604.usecase;
+package com.example.simple_graphql_grpc_project_2604.user.usecase;
 
-import com.example.simple_graphql_grpc_project_2604.grpc.UserGrpcClient;
+import com.example.simple_graphql_grpc_project_2604.user.grpc.UserGrpcClient;
 import com.example.simplegraphqlgrpcproject2604.grpc.UserDeleteRequest;
 import com.example.simplegraphqlgrpcproject2604.grpc.UserDeleteResponse;
 import lombok.RequiredArgsConstructor;

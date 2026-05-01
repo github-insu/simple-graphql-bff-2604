@@ -1,8 +1,8 @@
-package com.example.simple_graphql_grpc_project_2604.usecase;
+package com.example.simple_graphql_grpc_project_2604.user.usecase;
 
-import com.example.simple_graphql_grpc_project_2604.graphql.model.User;
-import com.example.simple_graphql_grpc_project_2604.grpc.UserGrpcClient;
-import com.example.simple_graphql_grpc_project_2604.usecase.mapper.ResponseUserMapper;
+import com.example.simple_graphql_grpc_project_2604.user.graphql.model.User;
+import com.example.simple_graphql_grpc_project_2604.user.grpc.UserGrpcClient;
+import com.example.simple_graphql_grpc_project_2604.user.usecase.mapper.ResponseUserMapper;
 import com.example.simplegraphqlgrpcproject2604.grpc.UserReadOneRequest;
 import com.example.simplegraphqlgrpcproject2604.grpc.UserReadOneResponse;
 import lombok.RequiredArgsConstructor;

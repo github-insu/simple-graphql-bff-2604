@@ -1,8 +1,8 @@
-package com.example.simple_graphql_grpc_project_2604.graphql;
+package com.example.simple_graphql_grpc_project_2604.user.graphql;
 
-import com.example.simple_graphql_grpc_project_2604.graphql.model.User;
-import com.example.simple_graphql_grpc_project_2604.usecase.ReadUserListUseCase;
-import com.example.simple_graphql_grpc_project_2604.usecase.ReadUserOneUseCase;
+import com.example.simple_graphql_grpc_project_2604.user.graphql.model.User;
+import com.example.simple_graphql_grpc_project_2604.user.usecase.ReadUserListUseCase;
+import com.example.simple_graphql_grpc_project_2604.user.usecase.ReadUserOneUseCase;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.graphql.data.method.annotation.Argument;
@@ -14,7 +14,7 @@ import java.util.List;
 @Controller
 @Slf4j
 @RequiredArgsConstructor
-public class QueryResolver {
+public class UserQueryResolver {
 
     private final ReadUserOneUseCase readUserOneUseCase;
     private final ReadUserListUseCase readUserListUseCase;

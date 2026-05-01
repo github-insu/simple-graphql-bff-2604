@@ -1,4 +1,4 @@
-package com.example.simple_graphql_grpc_project_2604.grpc;
+package com.example.simple_graphql_grpc_project_2604.user.grpc;
 
 import com.example.simplegraphqlgrpcproject2604.grpc.UserDeleteRequest;
 import com.example.simplegraphqlgrpcproject2604.grpc.UserDeleteResponse;

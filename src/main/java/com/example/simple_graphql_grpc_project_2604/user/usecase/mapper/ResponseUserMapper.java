@@ -1,6 +1,6 @@
-package com.example.simple_graphql_grpc_project_2604.usecase.mapper;
+package com.example.simple_graphql_grpc_project_2604.user.usecase.mapper;
 
-import com.example.simple_graphql_grpc_project_2604.graphql.model.User;
+import com.example.simple_graphql_grpc_project_2604.user.graphql.model.User;
 import com.example.simplegraphqlgrpcproject2604.grpc.UserEditResponse;
 import com.example.simplegraphqlgrpcproject2604.grpc.UserReadOneRequest;
 import com.example.simplegraphqlgrpcproject2604.grpc.UserReadOneResponse;

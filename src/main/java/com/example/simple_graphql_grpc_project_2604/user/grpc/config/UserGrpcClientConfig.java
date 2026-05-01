@@ -1,25 +1,27 @@
-package com.example.simple_graphql_grpc_project_2604.grpc.config;
+package com.example.simple_graphql_grpc_project_2604.user.grpc.config;
 
 import com.example.simplegraphqlgrpcproject2604.grpc.UserServiceGrpc;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class PostGrpcClientConfig {
+public class UserGrpcClientConfig {
 
     @Bean
-    public ManagedChannel managedChannel() {
+    public ManagedChannel userManagedChannel(@Value("${service.server.user-port}") String userServerPort) {
         return ManagedChannelBuilder
-                .forAddress("localhost", 9090)
+                .forAddress("localhost", Integer.parseInt(userServerPort))
                 .usePlaintext()
                 .build();
     }
 
     @Bean
     public UserServiceGrpc.UserServiceBlockingStub userServiceBlockingStub(
-            ManagedChannel channel) {
+            @Qualifier("userManagedChannel") ManagedChannel channel) {
 
         return UserServiceGrpc.newBlockingStub(channel);
     }

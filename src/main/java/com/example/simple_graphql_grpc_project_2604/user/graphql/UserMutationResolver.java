@@ -1,12 +1,12 @@
-package com.example.simple_graphql_grpc_project_2604.graphql;
+package com.example.simple_graphql_grpc_project_2604.user.graphql;
 
-import com.example.simple_graphql_grpc_project_2604.graphql.dto.EditUserInput;
-import com.example.simple_graphql_grpc_project_2604.graphql.dto.SignUpUserInput;
-import com.example.simple_graphql_grpc_project_2604.graphql.mapper.InputRequestMapper;
-import com.example.simple_graphql_grpc_project_2604.graphql.model.User;
-import com.example.simple_graphql_grpc_project_2604.usecase.DeleteUserUseCase;
-import com.example.simple_graphql_grpc_project_2604.usecase.EditUserUseCase;
-import com.example.simple_graphql_grpc_project_2604.usecase.SignUpUserUseCase;
+import com.example.simple_graphql_grpc_project_2604.user.graphql.dto.EditUserInput;
+import com.example.simple_graphql_grpc_project_2604.user.graphql.dto.SignUpUserInput;
+import com.example.simple_graphql_grpc_project_2604.user.graphql.mapper.InputRequestMapper;
+import com.example.simple_graphql_grpc_project_2604.user.graphql.model.User;
+import com.example.simple_graphql_grpc_project_2604.user.usecase.DeleteUserUseCase;
+import com.example.simple_graphql_grpc_project_2604.user.usecase.EditUserUseCase;
+import com.example.simple_graphql_grpc_project_2604.user.usecase.SignUpUserUseCase;
 import com.example.simplegraphqlgrpcproject2604.grpc.UserDeleteRequest;
 import com.example.simplegraphqlgrpcproject2604.grpc.UserEditRequest;
 import com.example.simplegraphqlgrpcproject2604.grpc.UserSignUpRequest;
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Controller;
 @Controller
 @RequiredArgsConstructor
 @Slf4j
-public class MutationResolver {
+public class UserMutationResolver {
 
     private final SignUpUserUseCase signUpUserUseCase;
     private final EditUserUseCase editUserUseCase;
