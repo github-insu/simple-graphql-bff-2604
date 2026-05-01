@@ -1,3 +1,11 @@
 spring:
   application:
     name: simple-graphql-grpc-project-2604
+
+  config:
+    import: optional:file:port.properties
+
+service:
+  server:
+    user-port: ${SERVER_USER_PORT}
+    post-port: ${SERVER_POST_PORT}
