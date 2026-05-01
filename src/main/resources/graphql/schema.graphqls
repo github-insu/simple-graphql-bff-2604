@@ -43,10 +43,14 @@ input EditUserInput {
 input PublishPostInput {
     title: String!
     content: String!
+
+    userId: ID!
 }
 
 input EditPostInput {
     id: ID!
     title: String
     content: String
+
+    userId: ID!
 }
