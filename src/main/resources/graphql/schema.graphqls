@@ -13,7 +13,7 @@ type Mutation {
 
     publishPost(input: PublishPostInput!): Post!
     editPost(input: EditPostInput!): Post!
-    deletePost(id: ID!): ID!
+    deletePost(input: DeletePostInput!): ID!
 }
 
 type User {
@@ -51,6 +51,12 @@ input EditPostInput {
     id: ID!
     title: String
     content: String
+
+    userId: ID!
+}
+
+input DeletePostInput {
+    id: ID!
 
     userId: ID!
 }
